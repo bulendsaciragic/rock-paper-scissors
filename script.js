@@ -57,7 +57,7 @@ playGame ()
 
 if (playerScore > computerScore) {
     alert(`Congrats! You won. Final score is ${playerScore} - ${computerScore}`) 
-} else if (playerScore = computerScore) {
+} else if (playerScore === computerScore) {
     alert(`Tie! Final score is ${playerScore} - ${computerScore}`)
 } else {
     alert(`You lose! Final score is ${playerScore} - ${computerScore}`)
