@@ -1,40 +1,61 @@
-function getComputerChoice () {
-    let choice = ['rock', 'paper', 'scissors'];
-    let computerChoice = choice[(Math.floor(Math.random() * choice.length))];
-    return computerChoice;
-}
-
-let computerChoice = getComputerChoice ();
+let playerScore = 0
+let computerScore = 0
 
 function playGame () {
 
-let playerChoice = prompt('This is a Rock, Paper, Scissors game! Write down your choice.').toLowerCase();    
+    function getComputerChoice () {
+    let choice = ['rock', 'paper', 'scissors'];
+    let computerChoice = choice[(Math.floor(Math.random() * choice.length))];
+    return computerChoice;
+    }
 
-function singleRound (playerChoice, computerChoice) {
+    let computerChoice = getComputerChoice ();
+    let playerChoice = prompt('This is a Rock, Paper, Scissors game! Write down your choice.').toLowerCase();    
 
-if (playerChoice === computerChoice) {
-     alert(`Tie! Computer have choosen ${playerChoice} too.`)
-} else if (playerChoice === 'rock' && computerChoice === 'paper') {
-    alert('You Lose! Paper beats Rock')
-} else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-    alert('You Win! Rock beats Scissors.')
-} else if (playerChoice === 'paper' && computerChoice === 'scissors') {
-    alert('You Lose! Scissors beats Paper')
-} else if (playerChoice === 'paper' && computerChoice === 'rock') {
-    alert('You Win! Paper beats Rock.')
-} else if (playerChoice === 'scissors' && computerChoice === 'rock') {
-    alert('You Lose! Rock beats Scissors')
-} else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-    alert('You Win! Scissors beats Paper.')
-} else {
-    alert('Wrong input. Please try again.')
-}    
+        function singleRound (playerChoice, computerChoice) {
 
-}
+        if (playerChoice === computerChoice) {
+            computerScore = computerScore + 1;
+            playerScore = playerScore +1; 
+            alert(`Tie! Computer have choosen ${playerChoice} too. Result is ${playerScore} - ${computerScore}`);     
+        } else if (playerChoice === 'rock' && computerChoice === 'paper') {
+            computerScore = computerScore + 1;
+            alert(`You Lose! Paper beats Rock. Result is ${playerScore} - ${computerScore}`)
+        } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+            playerScore = playerScore +1;
+            alert(`You Win! Rock beats Scissors. Result is ${playerScore} - ${computerScore}`)
+        } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+            computerScore = computerScore + 1;
+            alert(`You Lose! Scissors beats Paper. Result is ${playerScore} - ${computerScore}`)
+        } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+            playerScore = playerScore +1;
+            alert(`You Win! Paper beats Rock. Result is ${playerScore} - ${computerScore}`)
+        } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+            computerScore = computerScore + 1;
+            alert(`You Lose! Rock beats Scissors. Result is ${playerScore} - ${computerScore}`)
+        } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+            playerScore = playerScore +1;
+            alert(`You Win! Scissors beats Paper. Result is ${playerScore} - ${computerScore}`)
+        } else {
+            alert(`Wrong input. Please try again. Result is ${playerScore} - ${computerScore}`)
+        }    
+        
+        }
 
-singleRound (playerChoice, computerChoice) 
-
+        singleRound (playerChoice, computerChoice);
+        return {computerScore, playerScore};
 }
 
 playGame ()
+playGame ()
+playGame ()
+playGame ()
+playGame ()
 
+if (playerScore > computerScore) {
+    alert(`Congrats! You won. Final score is ${playerScore} - ${computerScore}`) 
+} else if (playerScore = computerScore) {
+    alert(`Tie! Final score is ${playerScore} - ${computerScore}`)
+} else {
+    alert(`You lose! Final score is ${playerScore} - ${computerScore}`)
+}
