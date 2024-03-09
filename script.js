@@ -1,3 +1,4 @@
+let round = 1
 let playerScore = 0
 let computerScore = 0
 
@@ -10,7 +11,7 @@ function playGame () {
     }
 
     let computerChoice = getComputerChoice ();
-    let playerChoice = prompt('This is a Rock, Paper, Scissors game! Write down your choice.').toLowerCase();    
+    let playerChoice = prompt(`Round ${round} / 5 | Rock, Paper, Scissors game. Write down your choice.`).toLowerCase();    
 
         function singleRound (playerChoice, computerChoice) {
 
@@ -40,17 +41,19 @@ function playGame () {
             alert(`Wrong input. Please try again. Result is ${playerScore} - ${computerScore}`)
         }    
         
+        round = round+1;
+
         }
 
         singleRound (playerChoice, computerChoice);
-        return {computerScore, playerScore};
+        return {computerScore, playerScore, round};
 }
 
 playGame ()
 playGame ()
 playGame ()
 playGame ()
-playGame ()
+playGame () 
 
 if (playerScore > computerScore) {
     alert(`Congrats! You won. Final score is ${playerScore} - ${computerScore}`) 
